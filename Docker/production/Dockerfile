@@ -1,5 +1,5 @@
 # Use a specific version of the Python image
-FROM python:3.7-slim-buster AS build
+FROM python:3.7-slim-buster
 
 # Set the working directory
 WORKDIR /app
@@ -12,4 +12,4 @@ RUN apt-get update && apt-get install -y build-essential libpq-dev libssl-dev zl
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run odoo.py when the container launches
-CMD ["python", "odoo-bin"]
+CMD ["python", "odoo-bin", "-c", "run.conf"]
