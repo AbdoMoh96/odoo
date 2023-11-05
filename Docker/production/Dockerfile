@@ -8,7 +8,7 @@ WORKDIR /app
 ADD . /app
 
 # Install build dependencies and Odoo requirements
-RUN apt-get update && apt-get install -y build-essential libpq-dev libssl-dev zlib1g-dev libjpeg-dev
+RUN apt-get update && apt-get install -y python3-pip libldap2-dev libpq-dev libsasl2-dev python3-cffi
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run odoo.py when the container launches
